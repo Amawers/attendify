@@ -6,7 +6,6 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Color.fromARGB(128, 28, 44, 75),
       body: Center(
         child: Column(
           mainAxisAlignment:

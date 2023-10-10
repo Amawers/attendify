@@ -34,7 +34,6 @@ class _NavBarState extends State<NavBar> {
           NavigationDestination(
               icon: Icon(Icons.settings), label: 'Settings'),
         ],
-        backgroundColor: Colors.cyan,
         selectedIndex: currentPage,
         onDestinationSelected: (int value) {
           setState(() {
