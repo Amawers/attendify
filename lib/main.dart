@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     backgroundColor: Colors.pink,
   ),
   navigationBarTheme: const NavigationBarThemeData(
-    backgroundColor: Colors.yellow,
+    backgroundColor: Color.fromARGB(255, 137, 148, 171),
   ),
 );
 
