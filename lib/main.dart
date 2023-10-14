@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/core/notifiers.dart';
+import 'package:my_app/pages/dashboard_page.dart';
 import 'package:my_app/pages/login_page.dart';
 import 'package:my_app/widgets/navbar_widget.dart';
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
       builder: (context, isDark, child) {
         return MaterialApp(
           theme: isDark ? darkTheme : lightTheme,
-          home: const LoginScreen(),
+          home: const NavBar(),
         );
       },
     );
