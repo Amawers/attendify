@@ -3,5 +3,4 @@ class Student {
   String? lastName;
 
   Student({this.firstName, this.lastName});
-
 }
