@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/core/notifiers.dart';
-import 'package:my_app/pages/dashboard_page.dart';
-import 'package:my_app/pages/login_page.dart';
-import 'package:my_app/widgets/navbar_widget.dart';
+import 'package:my_app/pages/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,12 +28,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    
     return ValueListenableBuilder(
       valueListenable: isDarkNotifier,
       builder: (context, isDark, child) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           theme: isDark ? darkTheme : lightTheme,
-          home: const NavBar(),
+          home: const HomePage(),
         );
       },
     );

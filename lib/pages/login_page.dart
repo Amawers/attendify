@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_app/widgets/navbar_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -139,7 +140,14 @@ class _LoginScreenState extends State<LoginScreen> {
       padding: const EdgeInsets.symmetric(vertical: 25),
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () => print('Login Pressed'),
+         onPressed: () {
+        // Add code to navigate to NavBar when the login button is clicked.
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => NavBar(),
+          ),
+        );
+      },
         style: ElevatedButton.styleFrom(
           elevation: 5,
           padding: const EdgeInsets.all(15),
