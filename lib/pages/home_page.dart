@@ -10,67 +10,169 @@ class HomePage extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 8, 22, 49),
       body: Center(
         child: Card(
-          color: const Color.fromARGB(255, 8, 22, 49),
-          child: Padding(
-            padding: const EdgeInsets.all(18.0),
+            color: const Color.fromARGB(255, 8, 22, 49),
+            margin: EdgeInsets.zero, // Add this line
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Image.asset('assets/images/ATtendify.png', width: 400),
-                Container(
-                  width: 300,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
-                      );
-                    },
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18),
-                        ),
-                      ),
-                      backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(255, 255, 255, 255)), // Set your desired background color here
-                    ),
-                    child: const Text(
-                      'Log In',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: const Color(0xFF081631)),
-                    ),
-                  ),
-                ),
+                Image.asset('assets/images/logo.png', width: 300),
+                const SizedBox(height: 16), // Add some space above the buttons
+                Card(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  margin: EdgeInsets.zero, // Add this line
 
-                const SizedBox(
-                    height: 16), // Add some space between the buttons
-                Container(
-                  width: 300,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Add register functionality here
-                    },
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18),
-                        ),
-                      ),
-                      backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(255, 255, 255, 255)),
-                    ),
-                    child: const Text(
-                      'Register',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: const Color(0xFF081631)),
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(
+                          20.0), // Adjust the top left corner radius
+                      topRight: Radius.circular(
+                          20.0), // Adjust the top right corner radius
                     ),
                   ),
-                ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 25.0, // Adjust the top padding value as needed
+                      bottom: 30.0, // Adjust the bottom padding value as needed
+                      left: 28.0, // Adjust the left padding value as needed
+                      right: 28.0, // Adjust the right padding value as needed
+                    ),
+                    child: Column(
+                      children: [
+                        const Column(
+                          children: [
+                            Text(
+                              'Welcome',
+                              style: TextStyle(
+                                fontSize:
+                                    20, // Adjust the font size for the first Text widget
+                                color: const Color.fromARGB(255, 8, 22, 49),
+                                fontWeight: FontWeight.bold
+                                // Add any other styles you want for the first Text widget
+                              ),
+                            ),
+                            Text(
+                              'Get started with your account',
+                              style: TextStyle(
+                                fontSize:
+                                    12, // Adjust the font size for the second Text widget
+                                color: const Color.fromARGB(255, 8, 22, 49),
+                                // Adjust the text color for the second Text widget
+                                // Add any other styles you want for the second Text widget
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 16), 
+                        Container(
+                          width: 250,
+                          height: 45,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginScreen(),
+                                ),
+                              );
+                            },
+                            style: ButtonStyle(
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18),
+                                ),
+                              ),
+                              elevation:
+                                  MaterialStateProperty.all<double>(30.0),
+                              shadowColor: MaterialStateProperty.all<Color>(
+                                  Color.fromARGB(255, 163, 163, 163)),
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                const Color.fromARGB(255, 8, 22, 49),
+                              ),
+                            ),
+                            child: const Text(
+                              'Log In',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                color: Color.fromARGB(255, 255, 255, 255),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        // Add some space between the buttons
+                        const SizedBox(
+                          width: 260,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Divider(
+                                  color: const Color.fromARGB(255, 8, 22, 49),
+                                  thickness: 2,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                child: Text(
+                                  'or',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: const Color.fromARGB(255, 8, 22, 49),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Divider(
+                                  color: const Color.fromARGB(255, 8, 22, 49),
+                                  thickness: 2,
+                                  height: 2,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ), // Add some space between the line and the "Register" button
+                        Container(
+                          width: 250,
+                          height: 45,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add register functionality here
+                            },
+                            style: ButtonStyle(
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18),
+                                ),
+                              ),
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                const Color.fromARGB(255, 8, 22, 49),
+                              ),
+                              elevation:
+                                  MaterialStateProperty.all<double>(30.0),
+                              shadowColor: MaterialStateProperty.all<Color>(
+                                  Color.fromARGB(255, 163, 163, 163)),
+                            ),
+                            child: const Text(
+                              'Register',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Color.fromARGB(255, 255, 255, 255),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
               ],
-            ),
-          ),
-        ),
+            )),
       ),
     );
   }
