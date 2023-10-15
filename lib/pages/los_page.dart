@@ -10,12 +10,12 @@ class LosPage extends StatefulWidget {
 
   class _LosPageState extends State<LosPage> {
     List<Student> students = [
-      Student(firstName: 'Lebron', lastName: 'James'),
-      Student(firstName: 'Taylor', lastName: 'Swift'),
-      Student(firstName: 'Skusta', lastName: 'Clee'),
-      Student(firstName: 'James', lastName: 'Reid'),
-      Student(firstName: 'Ed', lastName: 'Sheeran'),
-      Student(firstName: 'Ed', lastName: 'caluag'),
+      Student(firstName: 'Lebron', lastName: 'Germs'),
+      Student(firstName: 'Taylor', lastName: 'Sheesh'),
+      Student(firstName: 'Skusta', lastName: 'Clean'),
+      Student(firstName: 'James', lastName: 'Read'),
+      Student(firstName: 'Ed', lastName: 'Shernan'),
+      Student(firstName: 'Ed', lastName: 'Caluag'),
     ];
 
     @override
