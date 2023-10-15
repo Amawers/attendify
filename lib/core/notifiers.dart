@@ -1,4 +1,4 @@
 import 'package:flutter/material.dart';
 
-ValueNotifier<bool> isDarkNotifier = ValueNotifier(false);
+ValueNotifier<bool> isDarkNotifier = ValueNotifier(true);
 
