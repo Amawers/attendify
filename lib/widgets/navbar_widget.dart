@@ -25,21 +25,36 @@ class _NavBarState extends State<NavBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages.elementAt(currentPage),
-      bottomNavigationBar: NavigationBar(
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.people), label: 'Los'),
-          NavigationDestination(
-              icon: Icon(Icons.qr_code_scanner), label: 'Scan'),
-          NavigationDestination(
-              icon: Icon(Icons.settings), label: 'Settings'),
-        ],
-        selectedIndex: currentPage,
-        onDestinationSelected: (int value) {
-          setState(() {
-            currentPage = value;
-          });
-        },
+      bottomNavigationBar: SizedBox(
+        height: 65, // You can adjust this value to change the height
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people),
+              label: 'Los',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.qr_code_scanner),
+              label: 'Scan',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
+            ),
+          ],
+          currentIndex: currentPage,
+          showUnselectedLabels: true,
+          onTap: (int value) {
+            setState(() {
+              currentPage = value;
+            });
+          },
+        ),
       ),
     );
   }
