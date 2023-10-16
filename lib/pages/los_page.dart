@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../class/student_class.dart';
+
 class LosPage extends StatefulWidget {
     const LosPage({super.key});
 
@@ -8,16 +8,13 @@ class LosPage extends StatefulWidget {
     State<LosPage> createState() => _LosPageState();
   }
 
+ 
   class _LosPageState extends State<LosPage> {
-  //temporary collection for student list
-    List<Student> students = [
-      Student(firstName: 'Lebron', lastName: 'Germs'),
-      Student(firstName: 'Taylor', lastName: 'Sheesh'),
-      Student(firstName: 'Skusta', lastName: 'Clean'),
-      Student(firstName: 'James', lastName: 'Read'),
-      Student(firstName: 'Ed', lastName: 'Shernan'),
-      Student(firstName: 'Ed', lastName: 'Caluag'),
-    ];
+    //filtered list is use for filtering the list of student based on the value
+    //of their present property.
+    //by default the filtered list only contain all present students
+    List<Student> filteredStudents = students.where(
+            (student) => student.present == true).toList();
 
     @override
     Widget build(BuildContext context) {
@@ -29,7 +26,15 @@ class LosPage extends StatefulWidget {
             //Appbar Present Button
             Expanded(
               child: TextButton(
-                onPressed: () {},
+                //by pressing the present button it will filter the student list
+                //cards.
+                //this will display only the present student
+                onPressed: () {
+                  setState(() {
+                    filteredStudents = students.where(
+                            (student) => student.present == true).toList();
+                  });
+                },
                 child: const Text(
                   'PRESENT',
                   style: TextStyle(
@@ -48,7 +53,15 @@ class LosPage extends StatefulWidget {
             //Appbar Absent Button
             Expanded(
               child: TextButton(
-                onPressed: () {},
+                //by pressing the absent button it will filter the student list
+                //cards.
+                //this will display only the absent student
+                onPressed: () {
+                  setState(() {
+                    filteredStudents = students.where(
+                            (student) => student.present == false).toList();
+                  });
+                },
                 child: const Text(
                   'ABSENT',
                   style: TextStyle(
@@ -76,7 +89,8 @@ class LosPage extends StatefulWidget {
             //The student card is the the container storing the student information
             //including pictures, names, and time-in
             Column(
-              children: students.map((student) => createCard(student)).toList(),
+              children: filteredStudents.map(
+                      (student) => createCard(student)).toList(),
             ),
             Center(
               //This is the export button located at the last part of
