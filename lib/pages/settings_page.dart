@@ -7,13 +7,47 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      backgroundColor: const Color(0xFF081631),
+      appBar: AppBar(        
         title: const Text('Settings'),
+        backgroundColor: const Color(0xFF1C2C4B)
       ),
-      body: const Center(
+      body: Center(
         child: Column(
-          children: [
-          ],
+          // Button ni siya para sa kadtong options
+          children: <Widget>[
+              ElevatedButton(
+                onPressed: () {
+                },
+                child: const Text('Manage Account'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+
+                },
+                child: const Text('Privacy Policy'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+
+                },
+                child: const Text('Contact Support'),
+              ),
+
+              ElevatedButton(
+                onPressed: () {
+                  
+                },
+                child: Text('About App'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                 
+                },
+                child: Text('Exit from the App'),
+              ),
+              
+            ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
