@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:my_app/pages/qr_overlay.dart';
 
 class ScanPage extends StatelessWidget {
   const ScanPage({super.key});
@@ -13,34 +14,42 @@ class ScanPage extends StatelessWidget {
       // ),
       body: Container(
         width: double.infinity,
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            //Section ni diri kung gusto ta mag add ug text sa taas sa QR Scanner
             Expanded(
+              //Section ni diri kung gusto ta mag add ug text sa taas sa QR Scanner
               child: Container(
-                  //Text for above QR Scanner
+                  // Text above QR Scanner
                   ),
             ),
             //Code below kay kung asa ang container sa QR Scanner
             Expanded(
               flex: 4,
-              //Nara diri ang Scanner/Camera
-              child: MobileScanner(
-                onDetect: (barcodes) {
-                  //Diri ang code to make the scanner functional pag makadetect siya ug QR code
-                },
+              child: Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  //Nara diri ang Scanner/Camera
+                  MobileScanner(
+                    onDetect: (barcodes) {
+                      //Diri ang code to make the scanner functional pag makadetect siya ug QR code
+                    },
+                  ),
+                  //Overlay for the QR Scanner
+                  const QRScannerOverlay(overlayColour: Color(0xFF081631)),
+
+                  const SizedBox(
+                    height: 80,
+                    child: Text('Scan the QR code to check attendance'),
+                  ),
+                ],
               ),
             ),
             //Section ni diri kung gusto ta mag add ug text sa ubos sa QR Scanner
             Expanded(
               child: Container(
-                alignment: Alignment.center,
-                child: const Text(
-                  'Scan the QR code to check attendance',
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
+                  //Text below QR Scanner
+                  ),
             ),
           ],
         ),
