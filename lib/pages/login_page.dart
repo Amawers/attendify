@@ -45,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
             decoration: InputDecoration(
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14),
-                prefixIcon: Icon(Icons.email, color: Color(0xff8c34eb)),
+                prefixIcon: Icon(Icons.email, color: Color(0xff081631)),
                 hintText: 'Ex. JuanDecario@gmail.com', // EMAIL PLACE HOLDER
                 hintStyle: TextStyle(color: Color(0xffD3D3D3))),
           ),
@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
             decoration: InputDecoration(
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14),
-                prefixIcon: Icon(Icons.lock, color: Color(0xff8c34eb)),
+                prefixIcon: Icon(Icons.lock, color: Color(0xff081631)),
                 hintText: 'Ex.123****', // PLACEHOLDER PASSWORD
                 hintStyle: TextStyle(color: Color(0xffD3D3D3))),
           ),
@@ -127,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
             data: ThemeData(unselectedWidgetColor: const Color(0xffFFFFFF)),
             child: Checkbox(
               value: isRememberMe,
-              checkColor: const Color(0xffafc9a4), //CHECK MARK COLOR
+              checkColor: const Color(0xff081631), //CHECK MARK COLOR
               activeColor: const Color(0xffFFFFFF), // BOX OF THE CHECK MARK
               onChanged: (value) {
                 setState(() {
@@ -170,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: const Text(
           'LOGIN',
           style: TextStyle(
-            color: Color(0xfffcba03),
+            color: Color(0xff081631),
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
@@ -220,10 +220,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   begin: Alignment.topCenter, // STILL CONFUSE ABOUT THIS
                   end: Alignment.bottomCenter,
                   colors: [
-                    Color(0xffeb4034), // BACKGROUND COLORS
-                    Color(0xffeb4034),
-                    Color(0xffeb4034),
-                    Color(0xffeb4034),
+                    Color(0xff081631), // BACKGROUND COLORS
+                    Color(0xff081631),
+                    Color(0xff081631),
+                    Color(0xff081631),
                   ],
                 )),
                 child: SingleChildScrollView(
