@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
 
   final lightTheme = ThemeData(
     brightness: Brightness.light,
-    scaffoldBackgroundColor: Colors.red,
+    scaffoldBackgroundColor: const Color.fromARGB(255, 54, 244, 114),
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.pink,
+      backgroundColor: Color.fromARGB(255, 30, 233, 91),
     ),
     navigationBarTheme: const NavigationBarThemeData(
       backgroundColor: Colors.yellow,
@@ -22,14 +22,14 @@ class MyApp extends StatelessWidget {
 
   final darkTheme = ThemeData(
     brightness: Brightness.dark,
-    scaffoldBackgroundColor: const Color(0xFF081631),
+    scaffoldBackgroundColor: Color.fromARGB(255, 255, 255, 255),
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.pink,
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
     ),
      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: const Color(0xFF1C2C4B),
-      selectedItemColor: Colors.blueAccent, // Change selected item icon and label color
-      unselectedItemColor: Colors.white, 
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      selectedItemColor: Color(0xff081631), // Change selected item icon and label color
+      unselectedItemColor: Color.fromARGB(255, 116, 114, 114), 
     ),
   );
 
@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: isDark ? darkTheme : lightTheme,
           home: const HomePage(),
+          
         );
       },
     );

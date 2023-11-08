@@ -2,38 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:my_app/core/notifiers.dart';
 
 class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key});
+  const SettingsPage({Key? key});
 
   @override
   Widget build(BuildContext context) {
-  
     return Scaffold(
       backgroundColor: const Color(0xFF081631),
-      appBar: AppBar(        
+      appBar: AppBar(
         title: const Text('Settings'),
-        backgroundColor: const Color(0xFF1C2C4B)
+        backgroundColor: const Color(0xFF1C2C4B),
       ),
-      // All Box Containers from top to bottom with margins and text
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            CenteredMarginContainer(margin: EdgeInsets.only(bottom: 50.0), text: 'Manage Account'),
-           
-            CenteredMarginContainer(margin: EdgeInsets.only(top: 30.0), text: 'Private Policy'),
-           
-            CenteredMarginContainer(margin: EdgeInsets.only(top: 30.0), text: 'Contact support'),
-           
-            CenteredMarginContainer(margin: EdgeInsets.only(top: 30.0), text: 'About App'),
-           
-            CenteredMarginContainer(margin: EdgeInsets.only(top: 80.0), text: 'Exit from the App'),
-          ],
-        ),     
-      );
-  }
-  
+        children: <Widget>[
+          CenteredMarginContainer(margin: EdgeInsets.only(bottom: 50.0), text: 'Manage Account'),
+          CenteredMarginContainer(margin: EdgeInsets.only(top: 30.0), text: 'Private Policy'),
+          CenteredMarginContainer(margin: EdgeInsets.only(top: 30.0), text: 'Contact support'),
+          CenteredMarginContainer(margin: EdgeInsets.only(top: 30.0), text: 'About App'),
+          CenteredMarginContainer(margin: EdgeInsets.only(top: 80.0), text: 'Exit from the App'),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          isDarkNotifier.value = !isDarkNotifier.value;
+        },
+        child: const Icon(Icons.dark_mode),
+      ),
 
-  
-  
+    );
+  }
 }
 //These lines declare two properties that can be set when creating an instance of the class, 
 //allowing you to customize the appearance and content of the containers created from this class.
