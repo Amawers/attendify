@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/pages/manage_account.dart';
 // import 'package:my_app/core/notifiers.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -83,7 +84,9 @@ class CenteredMarginContainer extends  StatelessWidget{
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    
+                  },
                 )
               )
             )

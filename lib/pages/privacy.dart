@@ -19,7 +19,7 @@ class Privacy extends StatelessWidget {
 
               children: [
                Container(
-                margin: const EdgeInsets.only(top: 80,),
+                margin: const EdgeInsets.only(top: 40,),
                ),
 
                ElevatedButton.icon(
