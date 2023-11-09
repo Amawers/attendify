@@ -9,12 +9,11 @@ class LosPage extends StatefulWidget {
 }
 
 class _LosPageState extends State<LosPage> {
-  //filtered list is use for filtering the list of student based on the value
-  //of their present property.
+  //filtered list of student based on chosen filter option
   //by default the filtered list contain all students
   List<Student> filteredStudents = students;
 
-  //list of option in the filter dropdown button
+  //filter option
   List<String> filterOption = <String>['All', 'Present', 'Absent'];
 
   @override
@@ -26,18 +25,18 @@ class _LosPageState extends State<LosPage> {
           child: AppBar(
             elevation: 5.0,
             backgroundColor: const Color(0xffffffff),
-          )),
+          )
+        ),
       /*
         *
         *  The Main content of Los page
-        *  This is the container of student Card
         *
         */
       body: ListView(
         children: [
-          //It is the space between the the Column container of student cards
-          //and the appbar
+          //It is the space between the appbar and main content
           const SizedBox(height: 50),
+          //container for attendance report label and filter option button
           Container(
             margin: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 24.0),
             child: Row(
@@ -92,18 +91,24 @@ class _LosPageState extends State<LosPage> {
               ],
             ),
           ),
+          //space between filteroption button container and student list card
           const SizedBox(height: 50),
-          //Container of the student card
-          //The student card is the the container storing the student information
-          //including pictures, names, and time-in
+          /*
+           *Container of the student card
+           *The student card is the the container storing the student information
+           *including pictures, names, and attendance status
+           *
+          */
           Column(
             children:
                 filteredStudents.map((student) => createCard(student)).toList(),
           ),
           Center(
-            //This is the export button located at the last part of
-            // the student card list
-            //Its purpose is to export all data
+            /*
+             *This is the export button located at the last part of
+             *the student card list
+             *Its purpose is to export all data
+             */
             child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
@@ -130,12 +135,12 @@ class _LosPageState extends State<LosPage> {
   }
 
   /*
-    *
-    * filter the list based on the selected filter option
-    *
-    * */
-  void filterStudentList(value) {
-    switch (value) {
+   * function handler when use select a filter option
+   * this filter the list based on the selected filter option
+   *
+   */
+  void filterStudentList(selectedOption) {
+    switch (selectedOption) {
       case 'All':
         filteredStudents = students;
         break;
@@ -153,7 +158,7 @@ class _LosPageState extends State<LosPage> {
     * Function for creating a student card Widget
     * student card is the container where the student image, name, and time-in
     * is placed.
-    * */
+    */
   Widget createCard(currentStudent) {
     return Container(
       margin: const EdgeInsets.fromLTRB(35, 0, 35, 30),
@@ -173,21 +178,18 @@ class _LosPageState extends State<LosPage> {
       ),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 10, 22, 10),
-        //This row container has two children which are Row container use
-        //for containing the image and name of the student that is place at the
-        //left side of the student card. The other child is a Column container
-        //also use to place the time-in of the student that is located at the
-        //left side of the student card.
+        /*
+         *Row container that has two children which are
+         * 1.Row container(left side) for containg image and student names and
+         * 2.Column container(right side) for containing attendance status
+         */
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            //container for image and name of the student that is place at the
-            // left side of the student card
+            //left side row container for image and student names
             Row(
               children: [
-                //This is the first child of the left container.
-                //This is use to contain the student image
-                //but right now i use account_circle icon as substitute
+                //Image container
                 Container(
                   margin: const EdgeInsets.only(right: 12),
                   child: const Icon(
@@ -196,8 +198,7 @@ class _LosPageState extends State<LosPage> {
                     color: Colors.blueAccent,
                   ),
                 ),
-                //This is the second child of the left container.
-                //This is used to contain the student first and last name
+                //student name column container
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -223,8 +224,7 @@ class _LosPageState extends State<LosPage> {
                 ),
               ],
             ),
-            //This is the container for student attendance status
-            //This is located at the right side of the student card
+            //right side row container for attendance status
             attendanceStatus(currentStudent),
           ],
         ),
@@ -242,7 +242,7 @@ class _LosPageState extends State<LosPage> {
     if (currentStudent.present) {
       return const Column(
         children: [
-          //This is the time n of the student
+          //present status label and time in 
           Row(
             children: [
               Icon(
@@ -289,7 +289,9 @@ class _LosPageState extends State<LosPage> {
           )
         ],
       );
-    } else {
+    } 
+    //absent label
+    else {
       return const Row(
         children: [
           Icon(
