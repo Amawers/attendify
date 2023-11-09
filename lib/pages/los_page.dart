@@ -25,8 +25,7 @@ class _LosPageState extends State<LosPage> {
           child: AppBar(
             elevation: 5.0,
             backgroundColor: const Color(0xffffffff),
-          )
-        ),
+          )),
       /*
         *
         *  The Main content of Los page
@@ -49,7 +48,7 @@ class _LosPageState extends State<LosPage> {
                       'Attendance Report',
                       style: TextStyle(
                         color: Color(0xFF1C2C4B),
-                        fontSize: 26.0,
+                        fontSize: 22.0,
                         fontWeight: FontWeight.w900,
                       ),
                     ),
@@ -58,18 +57,20 @@ class _LosPageState extends State<LosPage> {
                       'Monday, 21 Sep 2023',
                       style: TextStyle(
                         color: Color(0xFF1C2C4B),
-                        fontSize: 16.0,
+                        fontSize: 14.0,
                       ),
                     )
                   ],
                 ),
                 //dropdown button option widget for filtering list of student
                 Container(
+                    height: 50.0,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
+                      borderRadius: BorderRadius.circular(30),
                       color: const Color(0xFF1C2C4B),
                     ),
                     child: DropdownMenu<String>(
+                      width: 110.0,
                       menuStyle: const MenuStyle(
                         backgroundColor: MaterialStatePropertyAll<Color>(
                           Color(0xFF1C2C4B),
@@ -145,12 +146,17 @@ class _LosPageState extends State<LosPage> {
         filteredStudents = students;
         break;
       case 'Present':
-        filteredStudents =
-            students.where((student) => student.present == true).toList();
+      case 'Late':
+        filteredStudents = students
+            .where((student) =>
+                student.attendanceStatus == 'present' ||
+                student.attendanceStatus == 'late')
+            .toList();
         break;
       case 'Absent':
-        filteredStudents =
-            students.where((student) => student.present == false).toList();
+        filteredStudents = students
+            .where((student) => student.attendanceStatus == false)
+            .toList();
     }
   }
 
@@ -242,7 +248,7 @@ class _LosPageState extends State<LosPage> {
     if (currentStudent.present) {
       return const Column(
         children: [
-          //present status label and time in 
+          //present status label and time in
           Row(
             children: [
               Icon(
@@ -289,7 +295,7 @@ class _LosPageState extends State<LosPage> {
           )
         ],
       );
-    } 
+    }
     //absent label
     else {
       return const Row(
