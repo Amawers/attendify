@@ -17,12 +17,13 @@ class ScanPage extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            Expanded(
-              //Section ni diri kung gusto ta mag add ug text sa taas sa QR Scanner
-              child: Container(
-                  // Text above QR Scanner
-                  ),
-            ),
+            // Expanded(
+            //   //Section ni diri kung gusto ta mag add ug text sa taas sa QR Scanner
+            //   child: Container(
+            //        child: Text('Scan the QR code to check attendance'),
+
+            //       ),
+            // ),
             //Code below kay kung asa ang container sa QR Scanner
             Expanded(
               flex: 4,
@@ -36,12 +37,15 @@ class ScanPage extends StatelessWidget {
                     },
                   ),
                   //Overlay for the QR Scanner
-                  const QRScannerOverlay(overlayColour: Color(0xFF081631)),
+                  const QRScannerOverlay(
+                      overlayColour: Color.fromARGB(255, 255, 255, 255)),
 
                   const SizedBox(
-                    height: 80,
-                    child: Text('Scan the QR code to check attendance'),
-                  ),
+                      height: 50,
+                      child: Text(
+                        'Scan the QR code to check attendance',
+                        style: TextStyle(color: Color(0xFF081631)),
+                      )),
                 ],
               ),
             ),

@@ -21,12 +21,6 @@ class _LosPageState extends State<LosPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
-      appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(80.0), // here the desired height
-          child: AppBar(
-            elevation: 5.0,
-            backgroundColor: const Color(0xffffffff),
-          )),
       /*
         *
         *  The Main content of Los page
@@ -50,7 +44,7 @@ class _LosPageState extends State<LosPage> {
                       'Attendance Report',
                       style: TextStyle(
                         color: Color(0xFF1C2C4B),
-                        fontSize: 26.0,
+                        fontSize: 17.0,
                         fontWeight: FontWeight.w900,
                       ),
                     ),
@@ -59,7 +53,8 @@ class _LosPageState extends State<LosPage> {
                       'Monday, 21 Sep 2023',
                       style: TextStyle(
                         color: Color(0xFF1C2C4B),
-                        fontSize: 16.0,
+                        fontSize: 10.0,
+                        fontWeight: FontWeight.bold
                       ),
                     )
                   ],
@@ -206,7 +201,7 @@ class _LosPageState extends State<LosPage> {
                       '${currentStudent.firstName}',
                       style: const TextStyle(
                         color: Color(0xFF1C2C4B),
-                        fontSize: 18,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -215,7 +210,7 @@ class _LosPageState extends State<LosPage> {
                       '${currentStudent.lastName}',
                       style: const TextStyle(
                         color: Color(0xFF1C2C4B),
-                        fontSize: 18,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -256,7 +251,7 @@ class _LosPageState extends State<LosPage> {
                 'PRESENT',
                 style: TextStyle(
                     color: Colors.green,
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.w900),
               )
             ],
