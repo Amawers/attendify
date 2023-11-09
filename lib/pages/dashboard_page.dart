@@ -10,8 +10,11 @@ class DashboardPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(height: 30.0),
+
+            // Kani na container para sa 1st section/widget, naay greetings ug profile
             Container(
-              width: 300, // Set the desired width
+              width: 300,
               decoration: BoxDecoration(
                 color: Color.fromARGB(255, 255, 255, 255),
                 borderRadius: BorderRadius.circular(20),
@@ -24,10 +27,8 @@ class DashboardPage extends StatelessWidget {
                 ],
               ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment
-                    .spaceAround, // Center the Row horizontally
-                mainAxisSize: MainAxisSize
-                    .min, // Take up as little vertical space as possible
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   const Padding(
                     padding: EdgeInsets.all(18.0),
@@ -38,7 +39,7 @@ class DashboardPage extends StatelessWidget {
                           style: TextStyle(
                             color: Color(0xff081631),
                             fontWeight: FontWeight.bold,
-                            fontSize: 14, // Change the font size here
+                            fontSize: 14,
                           ),
                         ),
                         Text(
@@ -64,16 +65,15 @@ class DashboardPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20), // Add space between the containers
 
-            // Add 3 rows for this container
-            // main overview
+            SizedBox(height: 20),
+
+            // Para sa main overview na widget
             Container(
-              width: 320, // Set the desired width
+              width: 320,
               decoration: BoxDecoration(
                 color: Color.fromARGB(255, 255, 255, 255),
-                borderRadius:
-                    BorderRadius.circular(20), // Adjust the radius as needed
+                borderRadius: BorderRadius.circular(20),
                 boxShadow: const [
                   BoxShadow(
                     color: Color(0xff101010),
@@ -94,7 +94,7 @@ class DashboardPage extends StatelessWidget {
                           style: TextStyle(
                               color: Color(0xFF081631),
                               fontWeight: FontWeight.w900,
-                              fontSize: 18), // Change text color to white
+                              fontSize: 18),
                         ),
                         Card(
                           color: Color(0xFF081631),
@@ -103,10 +103,10 @@ class DashboardPage extends StatelessWidget {
                           ),
                           child: const Padding(
                             padding: EdgeInsets.only(
-                              left: 10, // Adjust the left padding as needed
-                              top: 7, // Adjust the top padding as needed
-                              right: 10, // Adjust the right padding as needed
-                              bottom: 7, // Adjust the bottom padding as needed
+                              left: 10,
+                              top: 7,
+                              right: 10,
+                              bottom: 7,
                             ),
                             child: Row(
                               children: [
@@ -128,8 +128,7 @@ class DashboardPage extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(height: 20), // Add space between the containers
-
+                    SizedBox(height: 20),
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -182,8 +181,7 @@ class DashboardPage extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(height: 20), // Add space between the containers
-
+                    SizedBox(height: 20),
                     const Text(
                       'As of 8:00AM',
                       style: TextStyle(
@@ -195,21 +193,18 @@ class DashboardPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20), // Add space between the containers
 
-            // 3 buttons
+            SizedBox(height: 20),
+
+            // Para sa katong 3 ka buttons (attendace, class scheduling, reg)
             const Row(
-              mainAxisAlignment: MainAxisAlignment
-                  .spaceAround, // Center the buttons horizontally
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                // Attendance
+                // Attendance na button
                 Center(
                   child: Column(
-                    mainAxisAlignment:
-                        MainAxisAlignment.center, // Vertically center content
-                    crossAxisAlignment: CrossAxisAlignment
-                        .center, // Horizontally center content
-
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Card(
                           color: Color.fromARGB(255, 18, 104, 22),
@@ -224,21 +219,17 @@ class DashboardPage extends StatelessWidget {
                         style: TextStyle(
                             color: Color(0xff081631),
                             fontSize: 10,
-                            fontWeight: FontWeight
-                                .bold // Adjust the font size as needed
-                            ),
+                            fontWeight: FontWeight.bold),
                         textAlign: TextAlign.center,
                       ),
                     ],
                   ),
                 ),
-                // class scheduling
+                // class scheduling na button
                 Center(
                   child: Column(
-                    mainAxisAlignment:
-                        MainAxisAlignment.center, // Vertically center content
-                    crossAxisAlignment: CrossAxisAlignment
-                        .center, // Horizontally center content
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Card(
                         color: Colors.orange,
@@ -254,21 +245,17 @@ class DashboardPage extends StatelessWidget {
                         style: TextStyle(
                             color: Color(0xff081631),
                             fontSize: 10,
-                            fontWeight: FontWeight
-                                .bold // Adjust the font size as needed
-                            ),
+                            fontWeight: FontWeight.bold),
                         textAlign: TextAlign.center,
                       ),
                     ],
                   ),
                 ),
-                // Register student
+                // Register student na button
                 Center(
                   child: Column(
-                    mainAxisAlignment:
-                        MainAxisAlignment.center, // Vertically center content
-                    crossAxisAlignment: CrossAxisAlignment
-                        .center, // Horizontally center content
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Card(
                           color: Colors.purple,
@@ -283,9 +270,7 @@ class DashboardPage extends StatelessWidget {
                         style: TextStyle(
                             color: Color(0xff081631),
                             fontSize: 10,
-                            fontWeight: FontWeight
-                                .bold // Adjust the font size as needed
-                            ),
+                            fontWeight: FontWeight.bold),
                         textAlign: TextAlign.center,
                       ),
                     ],
@@ -293,60 +278,102 @@ class DashboardPage extends StatelessWidget {
                 )
               ],
             ),
+
+            //Para sa katong Recent Attendance na section
             Container(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(10.0),
               child: const Text(
                 "Recent Attendance",
                 style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.deepOrange),
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xff081631),
+                ),
               ),
             ),
-             Expanded(
-          child: ListView.separated(
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return Row(
-                children: [
-                  CircleAvatar(
-                    backgroundImage: NetworkImage("https://picsum.photos/200/300"),
-                  ),
-                  SizedBox(width: 16.0),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+            Expanded(
+              child: ListView.separated(
+                itemCount: 3,
+                itemBuilder: (context, index) {
+                  /* Mock data para naay pang display lang pero name ug profile
+                  lang siya, way labot tong present or absent then tong time ins
+                  nila kai ge hard code nalang siya para makita lang visually*/
+                  final mockData = [
+                    {
+                      "Name": "Lebron Germs",
+                      "imageUrl": "https://picsum.photos/200/300",
+                    },
+                    {
+                      "Name": "Skusta Clean",
+                      "imageUrl": "https://picsum.photos/200/301",
+                    },
+                    {
+                      "Name": "Ed Shernan",
+                      "imageUrl": "https://picsum.photos/200/302",
+                    },
+                  ];
+
+                  final record = mockData[index];
+
+                  // Template para gamiton sa pag create sa records
+                  return Row(
                     children: [
-                      Text(
-                "Recent Attendance",
-                style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.deepOrange),
-              ),
-                     Text(
-                "Recent Attendance",
-                style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.deepOrange),
-              ),
-                      Text(
-                "Recent Attendance",
-                style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.deepOrange),
-              ),
+                      CircleAvatar(
+                        backgroundImage: NetworkImage(record["imageUrl"]!),
+                      ),
+                      SizedBox(width: 10.0),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            record["Name"]!,
+                            style: const TextStyle(
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xff081631),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 100.0),
+                      const Column(
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.person_add_alt_1,
+                                color: Color.fromARGB(255, 0, 104, 17),
+                                size: 18,
+                              ),
+                              Text(
+                                "PRESENT",
+                                style: TextStyle(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 0, 104, 17),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Text(
+                            "7:20 AM TIME IN",
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xff081631),
+                            ),
+                          ),
+                        ],
+                      )
                     ],
-                  ),
-                ],
-              );
-            },
-            separatorBuilder: (context, index) {
-              return Divider();
-            },
-          ),
-        ),
+                  );
+                },
+                // Para pud naay space between records
+                separatorBuilder: (context, index) {
+                  return Divider();
+                },
+              ),
+            )
           ],
         ),
       ),

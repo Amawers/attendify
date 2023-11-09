@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/pages/manage_account.dart';
-// import 'package:my_app/core/notifiers.dart';
+import 'package:my_app/pages/about_app.dart';
 
+
+// For icons and button texts
 final Map<String, IconData> buttonIcons = {
   'Manage Account': Icons.account_circle,
   'Private Policy': Icons.privacy_tip,
@@ -10,15 +11,17 @@ final Map<String, IconData> buttonIcons = {
   'Log Out': Icons.logout,
 };
 
+
+// Main class para sa Settings Page
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color(0xFF081631),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        // CenteredMarginContainer constructor para pag create sa buttons
         children: <Widget>[
           CenteredMarginContainer(
             margin: EdgeInsets.only(bottom: 50.0),
@@ -35,10 +38,19 @@ class SettingsPage extends StatelessWidget {
             text: 'Contact Support',
             icon: buttonIcons['Contact Support'],
           ),
-          CenteredMarginContainer(
-            margin: EdgeInsets.only(top: 30.0),
-            text: 'About App',
-            icon: buttonIcons['About App'],
+          // Mo navigate sa About App page kung tuplokon
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AboutApp()),
+              );
+            },
+            child: CenteredMarginContainer(
+              margin: EdgeInsets.only(top: 30.0),
+              text: 'About App',
+              icon: buttonIcons['About App'],
+            ),
           ),
           CenteredMarginContainer(
             margin: EdgeInsets.only(top: 80.0),
@@ -47,23 +59,22 @@ class SettingsPage extends StatelessWidget {
           ),
         ],
       ),
-      //* To be implemented soon*//
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {
-      //     isDarkNotifier.value = !isDarkNotifier.value;
-      //   },
-      //   child: const Icon(Icons.dark_mode),
-      // ),
     );
   }
 }
 
+/*Template class para sa pag create sa mga buttons, 
+diri na class gina define ang mga styles sa buttons*/
 class CenteredMarginContainer extends StatelessWidget {
   final EdgeInsets margin;
   final String text;
   final IconData? icon;
 
-  CenteredMarginContainer({required this.margin, required this.text, this.icon});
+  CenteredMarginContainer({
+    required this.margin,
+    required this.text,
+    this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -109,14 +120,6 @@ class CenteredMarginContainer extends StatelessWidget {
                     ),
                   ),
                 ],
-              ),
-            ),
-            Positioned.fill(
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  onTap: () {},
-                ),
               ),
             ),
           ],

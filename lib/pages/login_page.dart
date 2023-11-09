@@ -15,7 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool showPassword = false;
   TextEditingController passwordController = TextEditingController();
 
-  // EMAIL SECTION
+  // Para sa email nga input field
   Widget buildEmail() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // Password field with show password functionality
+  // Para sa password nga input field tas naay functionality na show password or not
   Widget buildPassword() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,6 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
               hintText: 'Password',
               hintStyle: TextStyle(color: Color(0xffD3D3D3)),
               suffixIcon: GestureDetector(
+                // Logic para pag handle kung e show ba ang password or dili
                 onTap: () {
                   setState(() {
                     showPassword = !showPassword;
@@ -97,14 +98,15 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // FORGOT PASSWORD
+  // Para sa forgot password na hypertext
   Widget buildForgotPassBtn() {
     return Container(
-      margin: EdgeInsets.only(right: 20), // Adjust the right margin as needed
+      margin: EdgeInsets.only(right: 20),
       alignment: Alignment.centerRight,
       child: Padding(
         padding: const EdgeInsets.only(right: 0),
         child: TextButton(
+          // Wala pagyud siyay logic for forgot password, placeholder lang sa
           onPressed: () => print("Forgot Password Pressed"),
           child: const Text(
             'Forgot Password?',
@@ -118,10 +120,11 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // REMEMBER PASSWORD
+  /* Para sa katong remember me para mo automatically input ang 
+  credentials ni sa last user pero wala pagyud siyay logic*/
   Widget buildRememberCb() {
     return Container(
-      margin: EdgeInsets.only(left: 20), // Adjust the left margin as needed
+      margin: EdgeInsets.only(left: 20),
       child: SizedBox(
         height: 20,
         child: Row(
@@ -152,14 +155,15 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // LOGIN BUTTON
+  // Para sa Log In button
   Widget buildLoginBtn() {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 25),
       width: 260,
       child: ElevatedButton(
         onPressed: () {
-          // Add code to navigate to NavBar when the login button is clicked.
+          /* Navigate dayun sa initial na screen which is dashboard
+          wala pa siyay logic para mo check if sakto ba credentials*/
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => const NavBar(),
@@ -186,7 +190,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // SIGN UP BUTTON
+  // Para sa sign up na hyper text, wala pa gyapoy functionality
   Widget buildSignUpBtn() {
     return GestureDetector(
       // ignore: avoid_print
@@ -213,6 +217,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  // Para pag handle/hold sa katong mga widgets
   @override
   Widget build(BuildContext context) {
     return Scaffold(

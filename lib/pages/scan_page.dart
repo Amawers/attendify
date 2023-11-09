@@ -8,22 +8,11 @@ class ScanPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.transparent,
-      //   automaticallyImplyLeading: false,
-      // ),
       body: Container(
         width: double.infinity,
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            // Expanded(
-            //   //Section ni diri kung gusto ta mag add ug text sa taas sa QR Scanner
-            //   child: Container(
-            //        child: Text('Scan the QR code to check attendance'),
-
-            //       ),
-            // ),
             //Code below kay kung asa ang container sa QR Scanner
             Expanded(
               flex: 4,

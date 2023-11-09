@@ -9,6 +9,8 @@ void main() {
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
+  /* Lightmode nga theme, mao ang default na theme sa app,
+  ma apply rani siya na theme starting dashboard up to settings*/
   final lightTheme = ThemeData(
     brightness: Brightness.light,
     scaffoldBackgroundColor: const Color.fromARGB(255, 54, 244, 114),
@@ -20,6 +22,8 @@ class MyApp extends StatelessWidget {
     ),
   );
 
+  /* Bottom of the list, nanay code pero wala pa ge implement kai lisod 
+  mag contrast sa colors sa darkmode tas limited colors ra magamit*/
   final darkTheme = ThemeData(
     brightness: Brightness.dark,
     scaffoldBackgroundColor: Color.fromARGB(255, 255, 255, 255),
@@ -28,12 +32,12 @@ class MyApp extends StatelessWidget {
     ),
      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Color.fromARGB(255, 255, 255, 255),
-      selectedItemColor: Color(0xff081631), // Change selected item icon and label color
+      selectedItemColor: Color(0xff081631),
       unselectedItemColor: Color.fromARGB(255, 116, 114, 114), 
     ),
   );
 
-  // This widget is the root of your application.
+  // Main widget tas naa diri ang logic para e check if na click pa ang darkmode or light mode
   @override
   Widget build(BuildContext context) {
     

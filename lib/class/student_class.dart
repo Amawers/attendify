@@ -6,7 +6,7 @@ class Student {
   Student({this.firstName, this.lastName, this.present});
 }
 
-//temporary collection for student list
+// Temporary collection for student list
 List<Student> students = [
   Student(firstName: 'Lebron', lastName: 'Germs', present: true),
   Student(firstName: 'Taylor', lastName: 'Sheesh', present: true),

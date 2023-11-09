@@ -4,6 +4,8 @@ import 'package:my_app/pages/scan_page.dart';
 import 'package:my_app/pages/settings_page.dart';
 import '../pages/dashboard_page.dart';
 
+
+// Kani siya na widget present ni siya sa tanan pages 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
 
@@ -12,8 +14,12 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
+  /* Magdetermine kung unsa na nga page, ang initial 
+  is 0 which is equal to DashboardPage based sa list*/
   int currentPage = 0;
 
+  /* List sa mga page which is an index gamiton para
+  sa pag navigate kada page*/
   List<Widget> pages = const [
     DashboardPage(),
     LosPage(),
@@ -24,21 +30,23 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Present sa tanan pages kani na appbar
       appBar: AppBar(
-          automaticallyImplyLeading: false, // This line removes the back arrow
-
-        centerTitle: true, // Center both the title and the leading widget
+        automaticallyImplyLeading: false,
+        centerTitle: true,
         title: Image.asset(
           'assets/images/logo.png',
-          // You can set width, height, and other properties to customize the logo
-          width: 80, // Adjust the width as needed
-          height: 80, // Adjust the height as needed
+          width: 80,
+          height: 80,
         ),
         elevation: 10,
       ),
+      // Body which mag determine kung unsa na nga page
       body: pages.elementAt(currentPage),
+
+      // Kani na bottom nav bar present ni siya gyapon sa tanan pages
       bottomNavigationBar: SizedBox(
-        height: 65, // You can adjust this value to change the height
+        height: 65,
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           items: const [
@@ -61,6 +69,8 @@ class _NavBarState extends State<NavBar> {
           ],
           currentIndex: currentPage,
           showUnselectedLabels: true,
+          /* Logic para sa pag change sa page, basically alisdan ra ang integer value 
+          sa currentpage which is kada value ga represent ug page based sa list sa taas*/
           onTap: (int value) {
             setState(() {
               currentPage = value;

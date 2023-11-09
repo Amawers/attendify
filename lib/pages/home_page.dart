@@ -12,14 +12,15 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            // Logo sa app
             Image.asset('assets/images/logo.png', width: 300),
-            const SizedBox(height: 16), // Add some space above the buttons
+            const SizedBox(height: 16), 
             Padding(
               padding: const EdgeInsets.only(
-                top: 25.0, // Adjust the top padding value as needed
-                bottom: 30.0, // Adjust the bottom padding value as needed
-                left: 28.0, // Adjust the left padding value as needed
-                right: 28.0, // Adjust the right padding value as needed
+                top: 25.0, 
+                bottom: 30.0, 
+                left: 28.0,
+                right: 28.0,
               ),
               child: Column(
                 children: [
@@ -29,29 +30,31 @@ class HomePage extends StatelessWidget {
                         'Welcome',
                         style: TextStyle(
                             fontSize:
-                                20, // Adjust the font size for the first Text widget
+                                20, 
                             color: const Color.fromARGB(255, 8, 22, 49),
                             fontWeight: FontWeight.bold
-                            // Add any other styles you want for the first Text widget
+                            
                             ),
                       ),
                       Text(
                         'Get started with your account',
                         style: TextStyle(
                           fontSize:
-                              12, // Adjust the font size for the second Text widget
+                              12, 
                           color: const Color.fromARGB(255, 8, 22, 49),
-                          // Adjust the text color for the second Text widget
-                          // Add any other styles you want for the second Text widget
+                          
                         ),
                       ),
                     ],
                   ),
                   const SizedBox(height: 16),
+
+                  // Para sa login button na container
                   Container(
                     width: 250,
                     height: 45,
                     child: ElevatedButton(
+                      // Navigate sa Log In Page 
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -60,6 +63,7 @@ class HomePage extends StatelessWidget {
                           ),
                         );
                       },
+                      // Para ma oval iyang shape sa button
                       style: ButtonStyle(
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -84,8 +88,11 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
+
                   const SizedBox(height: 16),
-                  // Add some space between the buttons
+
+                  /* Kani siya na SizedBox para ni siya tong mura'g separator between
+                  Log In ug Register buttons, naay mura'g divider dayun ani */ 
                   const SizedBox(
                     width: 260,
                     child: Row(
@@ -119,13 +126,15 @@ class HomePage extends StatelessWidget {
                   ),
                   const SizedBox(
                     height: 16,
-                  ), // Add some space between the line and the "Register" button
+                  ),
+
+                  // Kani siya na Container para ni siya sa Register 
                   Container(
                     width: 250,
                     height: 45,
                     child: ElevatedButton(
+                      // Wala pa ge implement para mo navigate sa Register Page
                       onPressed: () {
-                        // Add register functionality here
                       },
                       style: ButtonStyle(
                         shape:
