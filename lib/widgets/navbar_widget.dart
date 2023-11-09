@@ -24,6 +24,18 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          automaticallyImplyLeading: false, // This line removes the back arrow
+
+        centerTitle: true, // Center both the title and the leading widget
+        title: Image.asset(
+          'assets/images/logo.png',
+          // You can set width, height, and other properties to customize the logo
+          width: 80, // Adjust the width as needed
+          height: 80, // Adjust the height as needed
+        ),
+        elevation: 10,
+      ),
       body: pages.elementAt(currentPage),
       bottomNavigationBar: SizedBox(
         height: 65, // You can adjust this value to change the height

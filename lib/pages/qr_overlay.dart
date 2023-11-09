@@ -10,8 +10,8 @@ class QRScannerOverlay extends StatelessWidget {
   Widget build(BuildContext context) {
     double scanArea = (MediaQuery.of(context).size.width < 400 ||
             MediaQuery.of(context).size.height < 400)
-        ? 200.0
-        : 330.0;
+        ? 300.0
+        : 430.0;
     return Stack(children: [
       ColorFiltered(
         colorFilter: ColorFilter.mode(
@@ -43,8 +43,8 @@ class QRScannerOverlay extends StatelessWidget {
         child: CustomPaint(
           foregroundPainter: BorderPainter(),
           child: SizedBox(
-            width: scanArea + 25,
-            height: scanArea + 25,
+            width: scanArea + 20,
+            height: scanArea + 20,
           ),
         ),
       ),
@@ -101,7 +101,7 @@ class BorderPainter extends CustomPainter {
     canvas.drawRRect(
       rrect,
       Paint()
-        ..color = Colors.white
+        ..color = Color(0xFF081631)
         ..style = PaintingStyle.stroke
         ..strokeWidth = width,
     );
