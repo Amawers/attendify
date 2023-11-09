@@ -48,6 +48,4 @@ Student(firstName: 'Benjamin', lastName: 'Hernandez', attendanceStatus: 'absent'
 Student(firstName: 'Chloe', lastName: 'Nelson', attendanceStatus: 'present'),
 Student(firstName: 'Henry', lastName: 'Perez', attendanceStatus: 'absent'),
 Student(firstName: 'Ella', lastName: 'Gonzalez', attendanceStatus: 'present'),
-
-
 ];

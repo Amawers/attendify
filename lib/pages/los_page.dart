@@ -64,17 +64,20 @@ class _LosPageState extends State<LosPage> {
                 ),
                 //dropdown button option widget for filtering list of student
                 Container(
-                    height: 50.0,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       color: const Color(0xFF1C2C4B),
                     ),
                     child: DropdownMenu<String>(
-                      width: 110.0,
+                      width: 115.0,
                       menuStyle: const MenuStyle(
                         backgroundColor: MaterialStatePropertyAll<Color>(
                           Color(0xFF1C2C4B),
-                        ),
+                          ),
+                      ),
+
+                      textStyle: const TextStyle(
+                        fontSize: 12.0,
                       ),
                       initialSelection: filterOption.first,
                       onSelected: (String? value) {
@@ -92,7 +95,7 @@ class _LosPageState extends State<LosPage> {
               ],
             ),
           ),
-          //space between filteroption button container and student list card
+          //space between filter option button container and student list card
           const SizedBox(height: 50),
           /*
            *Container of the student card
@@ -130,6 +133,7 @@ class _LosPageState extends State<LosPage> {
                   ),
                 )),
           ),
+          const SizedBox(height: 50),
         ],
       ),
     );
@@ -155,8 +159,9 @@ class _LosPageState extends State<LosPage> {
         break;
       case 'Absent':
         filteredStudents = students
-            .where((student) => student.attendanceStatus == false)
+            .where((student) => student.attendanceStatus == 'absent')
             .toList();
+        break;
     }
   }
 
@@ -245,7 +250,7 @@ class _LosPageState extends State<LosPage> {
   *
   * */
   Widget attendanceStatus(currentStudent) {
-    if (currentStudent.present) {
+    if (currentStudent.attendanceStatus == 'present') {
       return const Column(
         children: [
           //present status label and time in
@@ -277,7 +282,7 @@ class _LosPageState extends State<LosPage> {
                 '4:00 AM', //temporary
                 style: TextStyle(
                     color: Color(0xFF1C2C4B),
-                    fontSize: 12,
+                    fontSize: 10,
                     fontWeight: FontWeight.bold),
               ),
               SizedBox(
@@ -287,7 +292,59 @@ class _LosPageState extends State<LosPage> {
                 'TIME IN',
                 style: TextStyle(
                   color: Color(0xFF1C2C4B),
-                  fontSize: 12,
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          )
+        ],
+      );
+    }
+    //if late
+    else if (currentStudent.attendanceStatus == 'late') {
+      return const Column(
+        children: [
+          //late status label and time in
+          Row(
+            children: [
+              Icon(
+                Icons.how_to_reg_outlined,
+                color: Colors.orangeAccent,
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text(
+                'LATE',
+                style: TextStyle(
+                    color: Colors.orangeAccent,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w900),
+              )
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          //This is the time-in label text
+          Row(
+            children: [
+              Text(
+                '4:00 AM', //temporary
+                style: TextStyle(
+                    color: Color(0xFF1C2C4B),
+                    fontSize: 10,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              Text(
+                'TIME IN',
+                style: TextStyle(
+                  color: Color(0xFF1C2C4B),
+                  fontSize: 10,
                   fontWeight: FontWeight.bold,
                 ),
               ),
