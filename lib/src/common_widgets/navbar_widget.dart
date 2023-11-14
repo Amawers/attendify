@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/pages/los_page.dart';
 import 'package:my_app/pages/scan_page.dart';
 import 'package:my_app/pages/settings_page.dart';
-import '../pages/dashboard_page.dart';
+import '../../pages/dashboard_page.dart';
 
 
 // Kani siya na widget present ni siya sa tanan pages 
