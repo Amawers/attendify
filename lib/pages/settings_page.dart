@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:my_app/pages/about_app.dart';
+import 'package:my_app/src/repository/authentication_repository/authentication_repository.dart';
 
 
 // For icons and button texts
@@ -52,10 +54,15 @@ class SettingsPage extends StatelessWidget {
               icon: buttonIcons['About App'],
             ),
           ),
-          CenteredMarginContainer(
-            margin: EdgeInsets.only(top: 80.0),
-            text: 'Log Out',
-            icon: buttonIcons['Log Out'],
+          InkWell(
+            onTap: () {
+              AuthenticationRepository.instance.logout();
+            },
+            child: CenteredMarginContainer(
+              margin: EdgeInsets.only(top: 30.0),
+              text: 'Log Out',
+              icon: buttonIcons['About App'],
+            ),
           ),
         ],
       ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_app/pages/dashboard_page.dart';
 import 'package:my_app/pages/home_page.dart';
+import 'package:my_app/src/common_widgets/navbar_widget.dart';
 import 'package:my_app/src/repository/authentication_repository/exceptions/signup_email_password_failure.dart';
 
 class AuthenticationRepository extends GetxController {
@@ -21,7 +22,7 @@ class AuthenticationRepository extends GetxController {
   _setInitialScreen(User? user) {
     user == null
         ? Get.offAll(() => const HomePage())
-        : Get.offAll(() => const DashboardPage());
+        : Get.offAll(() => const NavBar());
   }
 
   Future<void> createUserWithEmailAndPassword(
@@ -29,7 +30,7 @@ class AuthenticationRepository extends GetxController {
     try {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-      firebaseUser.value != null ? Get.offAll(() => const DashboardPage()) : Get.to(() => const HomePage());
+      firebaseUser.value != null ? Get.offAll(() => const NavBar()) : Get.to(() => const HomePage());
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       print('FIREBASE AUTH EXCEPTION - ${ex.message}');
