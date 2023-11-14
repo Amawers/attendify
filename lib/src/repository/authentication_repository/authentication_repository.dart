@@ -41,12 +41,19 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  Future<void> loginWithEmailAndPassword(String email, String password) async {
+   Future<String?> loginWithEmailAndPassword(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
-    } catch (_) {}
+      // final ex = LogInWithEmailAndPasswordFailure.fromCode(e.code);
+      // return ex.message;
+    } catch (_) {
+      // const ex = LogInWithEmailAndPasswordFailure();
+      // return ex.message;
+    }
+    return null;
   }
+
 
   Future<void> logout() async => await _auth.signOut();
 }

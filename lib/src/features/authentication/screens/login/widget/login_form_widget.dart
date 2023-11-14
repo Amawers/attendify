@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:my_app/src/common_widgets/navbar_widget.dart';
+import 'package:my_app/src/features/authentication/controllers/login_controller.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -8,12 +11,15 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
+
     return Form(
         child: Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Column(
         children: [
           TextFormField(
+            controller: controller.email,
             decoration: const InputDecoration(
               border: InputBorder.none,
               prefixIcon: Icon(Icons.email, color: Color(0xff081631)),
@@ -23,6 +29,7 @@ class LoginForm extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           TextFormField(
+            controller: controller.password,
             decoration: const InputDecoration(
               border: InputBorder.none,
               prefixIcon: Icon(Icons.lock, color: Color(0xff081631)),
@@ -64,12 +71,9 @@ class LoginForm extends StatelessWidget {
             width: double.infinity,
             child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const NavBar(),
-                    ),
-                  );
-                },
+                // Call the login function when the button is pressed
+                controller.login();
+              },
                 child: const Text('Log In',
                     style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255),
