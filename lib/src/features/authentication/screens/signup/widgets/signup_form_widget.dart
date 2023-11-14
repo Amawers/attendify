@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_app/src/features/authentication/controllers/signup_controller.dart';
+import 'package:my_app/src/features/authentication/models/user_model.dart';
 
 class SignupForm extends StatelessWidget {
   const SignupForm({
@@ -57,6 +58,13 @@ class SignupForm extends StatelessWidget {
                           if(_formKey.currentState!.validate()){
                             SignUpController.instance.registerUser(controller.email.text.trim(), controller.password.text.trim());
                             
+                            final user = UserModel(
+                              email: controller.email.text.trim(), 
+                              password: controller.password.text.trim(), 
+                              fullName: controller.fullName.text.trim(), 
+                              phoneNo: controller.phoneNo.text.trim()
+                            );
+                            SignUpController.instance.createUser(user);
                           }
                       }, child: Text("Sign Up"))),
               TextButton(
