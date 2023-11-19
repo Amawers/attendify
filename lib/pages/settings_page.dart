@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_app/pages/about_app.dart';
+import 'package:my_app/src/features/core/screens/profile/profile_screen.dart';
 import 'package:my_app/src/repository/authentication_repository/authentication_repository.dart';
 
 
@@ -16,7 +17,7 @@ final Map<String, IconData> buttonIcons = {
 
 // Main class para sa Settings Page
 class SettingsPage extends StatelessWidget {
-  const SettingsPage({Key? key});
+  const SettingsPage({super.key, Key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,18 +26,26 @@ class SettingsPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         // CenteredMarginContainer constructor para pag create sa buttons
         children: <Widget>[
-          CenteredMarginContainer(
-            margin: EdgeInsets.only(bottom: 50.0),
-            text: 'Manage Account',
-            icon: buttonIcons['Manage Account'],
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfileScreen()),
+              );
+            },
+            child: CenteredMarginContainer(
+              margin: const EdgeInsets.only(top: 30.0),
+              text: 'Manage Account',
+              icon: buttonIcons['Manage Account'],
+            ),
           ),
           CenteredMarginContainer(
-            margin: EdgeInsets.only(top: 30.0),
+            margin: const EdgeInsets.only(top: 30.0),
             text: 'Private Policy',
             icon: buttonIcons['Private Policy'],
           ),
           CenteredMarginContainer(
-            margin: EdgeInsets.only(top: 30.0),
+            margin: const EdgeInsets.only(top: 30.0),
             text: 'Contact Support',
             icon: buttonIcons['Contact Support'],
           ),
@@ -45,11 +54,11 @@ class SettingsPage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AboutApp()),
+                MaterialPageRoute(builder: (context) => const AboutApp()),
               );
             },
             child: CenteredMarginContainer(
-              margin: EdgeInsets.only(top: 30.0),
+              margin: const EdgeInsets.only(top: 30.0),
               text: 'About App',
               icon: buttonIcons['About App'],
             ),
@@ -59,7 +68,7 @@ class SettingsPage extends StatelessWidget {
               AuthenticationRepository.instance.logout();
             },
             child: CenteredMarginContainer(
-              margin: EdgeInsets.only(top: 30.0),
+              margin: const EdgeInsets.only(top: 30.0),
               text: 'Log Out',
               icon: buttonIcons['About App'],
             ),
@@ -77,7 +86,7 @@ class CenteredMarginContainer extends StatelessWidget {
   final String text;
   final IconData? icon;
 
-  CenteredMarginContainer({
+  const CenteredMarginContainer({super.key, 
     required this.margin,
     required this.text,
     this.icon,
@@ -90,7 +99,7 @@ class CenteredMarginContainer extends StatelessWidget {
         margin: margin,
         width: MediaQuery.of(context).size.width * 0.9,
         height: MediaQuery.of(context).size.height * 0.08,
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         decoration: const BoxDecoration(
           color: Color.fromRGBO(255, 255, 255, 1),
           borderRadius: BorderRadius.only(
@@ -116,9 +125,9 @@ class CenteredMarginContainer extends StatelessWidget {
                   if (icon != null)
                     Icon(
                       icon,
-                      color: Color(0xff081631),
+                      color: const Color(0xff081631),
                     ),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                   Text(
                     text,
                     style: const TextStyle(

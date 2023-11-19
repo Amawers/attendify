@@ -1,5 +1,8 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
     "cSpell.words": [
         "Attendify",
         "RGBO"
