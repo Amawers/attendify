@@ -7,8 +7,6 @@ import 'package:my_app/src/repository/user_repository/user_repository.dart';
 class ProfileController extends GetxController {
   static ProfileController get instance => Get.find();
 
-
-
   final _authRepo = Get.put(AuthenticationRepository());
   final _userRepo = Get.put(UserRepository());
 

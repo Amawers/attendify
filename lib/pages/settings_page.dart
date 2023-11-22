@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_app/pages/about_app.dart';
 import 'package:my_app/src/features/core/screens/profile/profile_screen.dart';
+import 'package:my_app/src/features/core/screens/register/register_student_screen.dart';
 import 'package:my_app/src/repository/authentication_repository/authentication_repository.dart';
 
 
@@ -54,12 +55,12 @@ class SettingsPage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const AboutApp()),
+                MaterialPageRoute(builder: (context) => const RegisterStudentScreen()),
               );
             },
             child: CenteredMarginContainer(
               margin: const EdgeInsets.only(top: 30.0),
-              text: 'About App',
+              text: 'Sample Register',
               icon: buttonIcons['About App'],
             ),
           ),
